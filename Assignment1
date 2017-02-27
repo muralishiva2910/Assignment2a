@@ -1,0 +1,107 @@
+[acadgild@localhost ~]$ pwd
+/home/acadgild
+[acadgild@localhost ~]$ sbin
+bash: sbin: command not found
+[acadgild@localhost ~]$ jps
+2507 Jps
+[acadgild@localhost ~]$ sudo service start sh
+[sudo] password for acadgild: 
+start: unrecognized service
+[acadgild@localhost ~]$ pwd
+/home/acadgild
+[acadgild@localhost ~]$ sudo service sshd start
+[sudo] password for acadgild: 
+[acadgild@localhost ~]$ jps
+2828 Jps
+[acadgild@localhost ~]$ start.all-sh
+bash: start.all-sh: command not found
+[acadgild@localhost ~]$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+17/02/28 00:42:30 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Starting namenodes on [localhost]
+localhost: starting namenode, logging to /usr/local/hadoop-2.6.0/logs/hadoop-acadgild-namenode-localhost.localdomain.out
+localhost: starting datanode, logging to /usr/local/hadoop-2.6.0/logs/hadoop-acadgild-datanode-localhost.localdomain.out
+Starting secondary namenodes [0.0.0.0]
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop-2.6.0/logs/hadoop-acadgild-secondarynamenode-localhost.localdomain.out
+17/02/28 00:43:04 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop-2.6.0/logs/yarn-acadgild-resourcemanager-localhost.localdomain.out
+localhost: nodemanager running as process 3452. Stop it first.
+[acadgild@localhost ~]$ jps
+3682 Jps
+3396 ResourceManager
+3060 DataNode
+3242 SecondaryNameNode
+2957 NameNode
+[acadgild@localhost ~]$ hadoop fs -ls
+17/02/28 00:44:59 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 3 items
+drwxr-xr-x   - acadgild supergroup          0 2015-11-20 11:46 Pictures
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:03 oozie-acad
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:00 share
+[acadgild@localhost ~]$ hadoop fs -mkdir /user/acadgild/hadoop
+17/02/28 00:46:36 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[acadgild@localhost ~]$ hadoop fs -ls
+17/02/28 00:46:47 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 4 items
+drwxr-xr-x   - acadgild supergroup          0 2015-11-20 11:46 Pictures
+drwxr-xr-x   - acadgild supergroup          0 2017-02-28 00:46 hadoop
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:03 oozie-acad
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:00 share
+[acadgild@localhost ~]$ hadoop fs -ls /user/acadgild/hadoop
+17/02/28 00:56:48 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[acadgild@localhost ~]$ pwd
+/home/acadgild
+[acadgild@localhost ~]$ vi /user/acadgild/hadoop/word-count.txt
+[acadgild@localhost ~]$ ls
+derby.log  Downloads                                    hadoop         metastore_db  pig_1488048229231.log  Templates
+Desktop    eclipse                                      hdfs:          Music         pig_1488120481348.log  Videos
+Documents  eclipse-jee-neon-M3-linux-gtk-x86_64.tar.gz  hive-site.xml  Pictures      Public                 workspace
+[acadgild@localhost ~]$ vi word-count.txt
+[acadgild@localhost ~]$ vi word-count.txt
+[acadgild@localhost ~]$ ls
+derby.log  Downloads                                    hadoop         metastore_db  pig_1488048229231.log  Templates
+Desktop    eclipse                                      hdfs:          Music         pig_1488120481348.log  Videos
+Documents  eclipse-jee-neon-M3-linux-gtk-x86_64.tar.gz  hive-site.xml  Pictures      Public                 workspace
+[acadgild@localhost ~]$ vi word-count.txt
+[acadgild@localhost ~]$ ls
+derby.log  eclipse                                      hive-site.xml  pig_1488048229231.log  Videos
+Desktop    eclipse-jee-neon-M3-linux-gtk-x86_64.tar.gz  metastore_db   pig_1488120481348.log  word-count.txt
+Documents  hadoop                                       Music          Public                 workspace
+Downloads  hdfs:                                        Pictures       Templates
+[acadgild@localhost ~]$ cat word-count.txt
+ampl
+[acadgild@localhost ~]$ vi word-count.txt
+[acadgild@localhost ~]$ cat word-count.txt
+Murali Kannan
+Saranya
+Devesh Karthik
+
+[acadgild@localhost ~]$ hadoop fs -put word-count.txt/user/acadgild/hadoop
+17/02/28 01:28:54 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+put: `word-count.txt/user/acadgild/hadoop': No such file or directory
+[acadgild@localhost ~]$ hadoop fs -put word-count.txt/user/acadgild/hadoop
+17/02/28 01:30:04 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+put: `word-count.txt/user/acadgild/hadoop': No such file or directory
+[acadgild@localhost ~]$ hadoop fs -put word-count.txt /user/acadgild/hadoop
+17/02/28 01:30:34 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[acadgild@localhost ~]$ hadoop fs -ls
+17/02/28 01:30:48 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 4 items
+drwxr-xr-x   - acadgild supergroup          0 2015-11-20 11:46 Pictures
+drwxr-xr-x   - acadgild supergroup          0 2017-02-28 01:30 hadoop
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:03 oozie-acad
+drwxr-xr-x   - acadgild supergroup          0 2015-11-17 02:00 share
+[acadgild@localhost ~]$ cat /user/acadgild/hadoop
+cat: /user/acadgild/hadoop: No such file or directory
+[acadgild@localhost ~]$ hadoop fs -ls -d/user/acadgild/hadoop
+-ls: Illegal option -d/user/acadgild/hadoop
+Usage: hadoop fs [generic options] -ls [-d] [-h] [-R] [<path> ...]
+[acadgild@localhost ~]$ hadoop fs -ls -d /user/acadgild/hadoop
+17/02/28 01:33:55 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+drwxr-xr-x   - acadgild supergroup          0 2017-02-28 01:30 /user/acadgild/hadoop
+[acadgild@localhost ~]$ hadoop fs -ls /user/acadgild/hadoop
+17/02/28 01:34:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 1 items
+-rw-r--r--   1 acadgild supergroup         38 2017-02-28 01:30 /user/acadgild/hadoop/word-count.txt
+[acadgild@localhost ~]$ 
